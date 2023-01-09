@@ -1,5 +1,8 @@
 package com.erictrudell.mvcpattern.controllers;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -75,6 +78,12 @@ public class BookController {
 			bookServ.updateBook(book);
 			return"redirect:/";
 		}
+	}
+	@GetMapping("/{id}")
+	public String showMeTheBook(Model model, @PathVariable("id")Long id) {
+		Book book = bookServ.findBook(id);
+		model.addAttribute("book", book);
+		return "show.jsp";
 	}
 
 }

@@ -13,7 +13,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Books!</title>
+    <title>Library</title>
     <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
     
     <link rel="stylesheet" href="/css/main.css"> <!-- change to match your file/naming structure -->
@@ -21,24 +21,18 @@
     <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
-   <h1>Here are books</h1>
-   <a href="/book/new"><button>New Book</button></a>
-   <h3>Drink List</h3>
-   <c:forEach var="book" items="${allBooks}">
-   		<div>
-   			<c:out value="${book.title}"></c:out>
-   			<p><c:out value="${book.description}"></c:out></p>
-   			<p><c:out value="${book.language}"></c:out></p>
-   			<p><c:out value="${book.numberOfPages}"></c:out></p>
-   			<a href="/book/${book.id}"><button>Book Page</button></a>
-   			<a href="/book/${ book.id}/update"><button>Edit</button></a>
-   			<a href="/book/${ book.id}/delete"><button>DELETE</button></a>
-   			<form action="/${book.id}" method="POST">
-   				<input type="hidden" name="_nethod" value="delete"/>
-   				<button>Delete</button>
-   			</form>
-   		</div>
-   </c:forEach>
+   <h1>A place where a book lives</h1>
+   <div>
+   		<h3><c:out value="${book.title}"></c:out></h3>
+   		<p><c:out value="${book.description}"></c:out></p>
+   		<p><c:out value="${book.language}"></c:out></p>
+   		<p><c:out value="${book.numberOfPages}"></c:out></p>
+   </div>
+   <div>
+   		<a href="/"><button>Home</button></a>
+   		<a href="/book/${ book.id}/update"><button>Edit</button></a>
+   		<a href="/book/${ book.id}/delete"><button>DELETE</button></a>
+   </div>
+  
 </body>
 </html>
-
