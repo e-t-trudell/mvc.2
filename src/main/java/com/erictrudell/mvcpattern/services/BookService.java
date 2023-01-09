@@ -18,9 +18,9 @@ public class BookService {
 //    public BookService(BookRepositoryI bookRepository) {
 //        this.bookRepository = bookRepository;
 //    }
-	public Optional<Book> getOneById(Long id) {
-        return bookRepository.findById(id);
-    }
+//	public List<Book> getOneById(Long id) {
+//        return bookRepository.findById(id);
+//    }
     // returns all the books
     public List<Book> getAllBooks() {
         return bookRepository.findAll();

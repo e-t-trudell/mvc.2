@@ -27,15 +27,16 @@
    <c:forEach var="book" items="${allBooks}">
    		<div>
    			<c:out value="${book.title}"></c:out>
+   			<p><c:out value="${book.description}"></c:out></p>
+   			<p><c:out value="${book.language}"></c:out></p>
+   			<p><c:out value="${book.numberOfPages}"></c:out></p>
    			<a href="/book/${ book.id}/update"><button>Edit</button></a>
-   			<form action="/book/${book.id}/update" method="POST">
+   			<a href="/book/${ book.id}/delete"><button>DELETE</button></a>
+   			<form action="/${book.id}" method="POST">
    				<input type="hidden" name="_nethod" value="delete"/>
    				<button>Delete</button>
    			</form>
    		</div>
-   		<p><c:out value="${book.desc}"></c:out></p>
-   		<p><c:out value="${book.lang}"></c:out></p>
-   		<p><c:out value="${book.numOfPages}"></c:out></p>
    </c:forEach>
 </body>
 </html>

@@ -31,19 +31,19 @@
    		<form:errors path="title"></form:errors>
    	</div>
    	<div>
-   		<form:label path="desc">Description: </form:label>
-   		<form:input path="desc" value="${ book.desc }"></form:input>
-   		<form:errors path="desc"></form:errors>
+   		<form:label path="description">Description: </form:label>
+   		<form:input path="description" value="${ book.description }"></form:input>
+   		<form:errors path="description"></form:errors>
    	</div>
    	<div>
-   		<form:label path="lang">Language: </form:label>
-   		<form:input path="lang" value="${ book.lang }"></form:input>
-   		<form:errors path="lang"></form:errors>
+   		<form:label path="language">Language: </form:label>
+   		<form:input path="language" value="${ book.language }"></form:input>
+   		<form:errors path="language"></form:errors>
    	</div>
    	<div>
-   		<form:label path="numOfPages">Number of Pages: </form:label>
-   		<form:input path="numOfPages" value="${ book.numOfPages }"></form:input>
-   		<form:errors path="numOfPages"></form:errors>
+   		<form:label path="numberOfPages">Number of Pages: </form:label>
+   		<form:input path="numberOfPages" value="${ book.numberOfPages }"></form:input>
+   		<form:errors path="numberOfPages"></form:errors>
    	</div>
    	<button>Submit</button>
    </form:form>

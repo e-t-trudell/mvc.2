@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,7 +24,7 @@ public class BookController {
 	@Autowired
 	private BookService bookServ;
 	
-	@GetMapping("/create")
+	@GetMapping("/new")
 	public String newBook(@ModelAttribute("book") Book book) {
 		return "newBook.jsp";
 	}
@@ -37,16 +38,29 @@ public class BookController {
 			return "redirect:/";
 		}
 	}
+//	changing method of form to delete request from post request
+	@DeleteMapping("/{id}/delete")
+    public String deleted(@PathVariable("id") Long id) {
+    	bookServ.deleteById(id);
+    	return"redirect:/";
+    }
+//	for a-tag with href link
 	@GetMapping("/{id}/delete")
 	public String delete(@PathVariable("id") Long id) {
 		bookServ.deleteById(id);
 		return "redirect:/";
 	}
+
+//	@PutMapping("/{id}/delete")
+//	public String putRemove(@PathVariable("id") Long id) {
+//		bookServ.deleteById(id);
+//		return "redirect:/";
+//	}
 //	get request to render the page
 	@GetMapping("/{id}/update")
 	public String editForm(@PathVariable("id") Long id, Model model) {
 //		most elegant approach
-		model.addAttribute("book", bookServ.getOneById(id));
+		model.addAttribute("book", bookServ.findBook(id));
 		return "editBook.jsp";
 	}
 //	put request to actually edit
